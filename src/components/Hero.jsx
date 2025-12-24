@@ -48,9 +48,17 @@ function Hero() {
                   Know more
                 </button>
 
-                <button className="cv-btn">
-                  Download CV
-                </button>
+                <a
+                  href="/resume/MLT_Updated_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="cv-btn">
+                    View Resume
+                  </button>
+                </a>
+
+
               </div>
             </div>
           </div>
