@@ -182,3 +182,145 @@ h2 {
   line-height: 1.8;
   color: #3f3a35;
 }
+
+.projects-section {
+  width: 100vw;              /* force full viewport width for my projects */
+  margin-left: calc(-50vw + 50%);
+
+  padding: 120px 80px;
+  background-color: #473932;
+
+  /* Chocolate bar grid effect */
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size: 120px 120px;
+}
+
+
+.projects-title {
+  color: #d8cfc2;
+  font-size: 48px;
+  margin-bottom: 80px;
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+.project-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 120px;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.8s ease;
+  position: relative;
+}
+
+.project-row::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: -1;
+}
+
+
+.project-row.reverse {
+  flex-direction: row-reverse;
+  transform: translateX(-80px);
+}
+
+.project-row.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+
+.project-card {
+  background: #d8cfc2;
+  width: 260px;
+  height: 160px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.project-card h3 {
+  color: #473932;
+  font-size: 20px;
+  text-align: center;
+}
+
+.project-info {
+  max-width: 420px;
+  color: #f3eee6;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+.end-section {
+  height: 120vh;
+  background: #987f62;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container holding name + cover */
+.name-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The name itself */
+.final-name {
+  font-size: 72px;
+  font-family: Georgia, serif;
+  color: #473932;
+  position: relative;
+  z-index: 1;
+}
+
+/* Brown blanket */
+.cover {
+  position: absolute;
+  inset: 0;
+  background: #473932;
+  transform-origin: top;
+  z-index: 2;
+}
+
+/* Dot reveal */
+.dot {
+  color: #473932;
+  opacity: 0;
+  display: inline-block;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+

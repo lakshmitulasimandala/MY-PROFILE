@@ -1,83 +1,52 @@
-import ProjectCard from "./ProjectCard";
+import ProjectShowcase from "./ProjectShowcase";
+
+const projects = [
+  {
+    title: "JavaScript Projects For Practice",
+    description:
+      "A collection of small JavaScript projects to enhance coding skills.",
+    link: "https://github.com/lakshmitulasimandala/Javascript-Projects",
+  },
+  {
+    title: "TMDB Movie Recommendation",
+    description:
+      "Movie recommendation system using collaborative filtering and TMDB dataset.",
+    link: "https://github.com/lakshmitulasimandala/TMDB-Movie-Recommendation",
+  },
+  {
+    title: "Budget App",
+    description:
+      "Deployed a simple budget tracking application built with JavaScript.",
+    link: "https://budjet-w1zb.onrender.com/",
+  },
+  {
+    title: "Minor Project",
+    description:
+      "Full-stack academic project built as part of my degree curriculum.",
+    link: "https://github.com/lakshmitulasimandala/Minor-Project",
+  },
+  {
+    title: "Youtube Clone",
+    description:
+      "A clone of YouTube's front-end using React and Tailwind CSS, with additional features.",
+    link: "https://github.com/lakshmitulasimandala/youtube-clone",
+  }
+];
+
 
 function Projects() {
   return (
-    <section id="projects">
-      {/* FIRST ROW */}
-      <div className="container">
-        <div className="row">
-          <ProjectCard title="CRACKATHON">
-            <img
-              src="/images/cerebro_logo.png"
-              alt="CRACKATHON"
-              className="w-50"
-              style={{ borderRadius: "100px" }}
-            />
-            <p>
-              This project is retired! Unfortunately, this project is no
-              longer available. Don&apos;t worry, it may come back some
-              day. In the meantime, why not check out some of my other
-              projects?
-            </p>
-          </ProjectCard>
+    <section className="projects-section" id="projects">
+      <div className="projects-inner">
+        <h2 className="projects-title">Projects</h2>
 
-          <ProjectCard title="The Basic Calculator">
-            <img
-              src="/images/calculator_image.png"
-              alt="Calculator"
-              style={{
-                width: "100px",
-                marginBottom: "10px",
-                marginTop: "20px",
-              }}
-            />
-            <p>
-              This is a basic calculator. Built using HTML, CSS, and
-              JavaScript.
-            </p>
-          </ProjectCard>
-
-          <ProjectCard title="Evexa">
-            <ul style={{ textAlign: "center" }}>
-              <li>Role: Creator & Developer</li>
-              <li>Duration: April 2025</li>
-            </ul>
-            <p>
-              Evexa is a conversational AI assistant built during the
-              Google x Kaggle GenAI Capstone Challenge. It helps users
-              plan events step-by-step and generates a downloadable PDF.
-            </p>
-          </ProjectCard>
-        </div>
-      </div>
-
-      {/* SECOND ROW */}
-      <div className="container">
-        <div className="row">
-          <ProjectCard title="YouTube Dashboard Clone">
-            <img
-              src="/images/youtube_logo_icon.png"
-              alt="YouTube"
-              style={{ borderRadius: "100px", width: "100px" }}
-            />
-            <p>Built for the Outlier Hackathon.</p>
-          </ProjectCard>
-
-          <ProjectCard title="Mobile Automation">
-            <p>
-              This is a Mobile Automation System built during my AICTE
-              Microsoft Edunet Internship in AI NSI.
-            </p>
-          </ProjectCard>
-
-          <ProjectCard title="Sign Language Detector">
-            <ul style={{ textAlign: "center" }}>
-              <li>Role: Creator & Developer</li>
-              <li>Duration: April 2025</li>
-            </ul>
-            <p>Soon the launch happens.</p>
-          </ProjectCard>
-        </div>
+        {projects.map((project, index) => (
+          <ProjectShowcase
+            key={project.title}
+            project={project}
+            reverse={index % 2 !== 0}
+          />
+        ))}
       </div>
     </section>
   );
