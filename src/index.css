@@ -170,17 +170,217 @@ h2 {
   box-shadow: none;
 }
 
+/* =========================
+   ABOUT SECTION – FULL WIDTH
+========================= */
+
 .about-section {
-  padding: 80px 20px;
-  text-align: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+
+  min-height: 100vh;
+  background-color: #553915; /* caramel palette */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 80px;
+  overflow: hidden;
 }
 
-.about-text {
-  max-width: 720px;
-  margin: 30px auto 40px;
+
+/* Wrapper */
+.about-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 100px;
+  align-items: center;
+
+  opacity: 1 !important;
+  transform: none !important;
+  transition: all 1s ease;
+}
+
+.about-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   LEFT IMAGE
+========================= */
+
+.about-image {
+  transform: none;
+  opacity: 1;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.8s ease;
+  position: relative;
+}
+
+.about-image::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.about-wrapper.show .about-image {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.about-wrapper {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+
+  border-radius: 12px;
+  object-fit: cover;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* Hover interaction */
+.about-image:hover img {
+  transform: translateY(-10px) rotate(-0.5deg);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+.about-image::after {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  border-radius: 24px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: -1;
+}
+
+.about-image:hover::after {
+  opacity: 2;
+}
+
+
+/* =========================
+   RIGHT CONTENT
+========================= */
+
+.about-content {
+  transform: translateX(120px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.about-wrapper.show .about-content {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.about-content h2 {
+  font-size: 44px;
+  margin-bottom: 28px;
+  color: #d1c9c5;
+  font-family: Georgia, serif;
+}
+
+.about-content p {
   font-size: 18px;
-  line-height: 1.8;
-  color: #3f3a35;
+  line-height: 1.9;
+  color: #e5e0db;
+  margin-bottom: 22px;
+  max-width: 560px;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.about-socials {
+  margin-top: 34px;
+  display: flex;
+  gap: 24px;
+}
+
+.about-socials a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid #bba398;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #bab5b3;
+  font-size: 18px;
+  text-decoration: none;
+
+  transition: transform 0.3s ease,
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.about-socials a:hover {
+  transform: translateY(-8px);
+  background-color: #543427;
+  color: #f5e6c8;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+.about-socials a:hover {
+  transform: translateY(-8px) scale(1.08);
+}
+
+
+/* ===== TEXT ANIMATION ===== */
+
+.about-content h2,
+.about-content p,
+.about-socials {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* reveal when section is visible */
+.about-wrapper.show h2 {
+  animation: textReveal 0.8s ease forwards;
+}
+
+.about-wrapper.show p:nth-of-type(1) {
+  animation: textReveal 0.8s ease forwards;
+  animation-delay: 0.15s;
+}
+
+.about-wrapper.show p:nth-of-type(2) {
+  animation: textReveal 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.about-wrapper.show .about-socials {
+  animation: textReveal 0.8s ease forwards;
+  animation-delay: 0.45s;
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .projects-section {
