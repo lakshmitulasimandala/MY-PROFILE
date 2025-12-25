@@ -179,7 +179,7 @@ h2 {
   margin-left: calc(-50vw + 50%);
 
   min-height: 100vh;
-  background-color: #553915; /* caramel palette */
+  background-color: #6a5d4a; /* caramel palette 553915 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -388,9 +388,9 @@ h2 {
   margin-left: calc(-50vw + 50%);
 
   padding: 120px 80px;
-  background-color: #473932;
+  background-color: #452d21;
 
-  /* Chocolate bar grid effect */
+  /* Chocolate bar grid effect 473932 */
   background-image:
     linear-gradient(
       rgba(255, 255, 255, 0.06) 1px,
