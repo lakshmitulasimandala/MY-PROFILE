@@ -12,17 +12,17 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo("projects"); }}>
-            Work
-          </a>
-        </li>
-        <li>
           <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo("about"); }}>
             About
           </a>
         </li>
         <li>
-          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>
+          <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo("projects"); }}>
+            Work
+          </a>
+        </li>
+        <li>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("endsection"); }}>
             Contact
           </a>
         </li>
