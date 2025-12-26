@@ -12,7 +12,7 @@ function EndSection() {
 
         <div className="end-socials">
           <a
-            href="https://www.linkedin.com/in/your-linkedin"
+            href="https://www.linkedin.com/in/lakshmitulasimandala/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
@@ -21,7 +21,7 @@ function EndSection() {
           </a>
 
           <a
-            href="https://github.com/your-github"
+            href="https://github.com/lakshmitulasimandala"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -30,7 +30,7 @@ function EndSection() {
           </a>
 
           <a
-            href="https://instagram.com/your-instagram"
+            href="https://www.instagram.com/i_m.lakshmi_tulasi/"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
@@ -39,7 +39,7 @@ function EndSection() {
           </a>
 
           <a
-            href="mailto:yourmail@gmail.com"
+            href="mailto:lakshmitulasimandala@gmail.com"
             aria-label="Email"
           >
             <i className="fa-solid fa-envelope"></i>

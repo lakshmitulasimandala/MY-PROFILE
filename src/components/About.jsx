@@ -50,15 +50,15 @@ function About() {
           </p>
 
           <div className="about-socials">
-            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">
+            <a href="https://github.com/lakshmitulasimandala" target="_blank" rel="noreferrer">
               <i className="fa-brands fa-github"></i>
             </a>
 
-            <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/i_m.lakshmi_tulasi/" target="_blank" rel="noreferrer">
               <i className="fa-brands fa-instagram"></i>
             </a>
 
-            <a href="mailto:yourmail@gmail.com">
+            <a href="mailto:lakshmitulasimandala@gmail.com">
               <i className="fa-solid fa-envelope"></i>
             </a>
           </div>
