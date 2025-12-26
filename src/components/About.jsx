@@ -63,6 +63,19 @@ function About() {
             </a>
           </div>
 
+          <button
+            className="about-arrow"
+            aria-label="Scroll to projects"
+            onClick={() => {
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <i className="fa-solid fa-arrow-down"></i>
+          </button>
+
+
         </div>
 
       </div>

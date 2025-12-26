@@ -389,6 +389,50 @@ h2 {
   }
 }
 
+/* =========================
+   ABOUT → SCROLL ARROW
+========================= */
+
+.about-arrow {
+  margin-top: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: #bab5b3;
+  font-size: 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: arrowFloat 1.8s infinite;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.about-arrow:hover {
+  color: #f5e6c8;
+  transform: translateY(4px);
+}
+
+/* subtle floating animation */
+@keyframes arrowFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+}
+
+
+
 .projects-section {
   width: 100vw;              /* force full viewport width for my projects */
   margin-left: calc(-50vw + 50%);
