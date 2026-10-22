@@ -25,15 +25,35 @@ function ProjectShowcase({ project, reverse }) {
       ref={ref}
       className={`project-row ${reverse ? "reverse" : ""}`}
     >
-      <div
-        className="project-card"
-        onClick={() => window.open(project.link, "_blank")}
-      >
-        <h3>{project.title}</h3>
-      </div>
+      {project.link ? (
+        <a
+          className="project-card project-card-link"
+          href={project.link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <h3>{project.title}</h3>
+        </a>
+      ) : (
+        <div className="project-card project-card-static">
+          <h3>{project.title}</h3>
+        </div>
+      )}
 
       <div className="project-info">
-        <p>{project.description}</p>      
+        {project.organization && (
+          <p className="project-meta">
+            {project.organization} · {project.period}
+          </p>
+        )}
+        <p>{project.description}</p>
+        {project.technologies && (
+          <ul className="project-technologies" aria-label="Technologies used">
+            {project.technologies.map((technology) => (
+              <li key={technology}>{technology}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

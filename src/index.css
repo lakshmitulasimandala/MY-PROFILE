@@ -4,12 +4,22 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #987f62;
   color: #333;
   font-family: "Georgia", "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 .container {
@@ -21,18 +31,18 @@ body {
 }
 
 .animated-banner {
-  width: 100vw;                     /* full viewport width */
-  margin-left: calc(-50vw + 50%);   /* break out of layout */
-  
+  width: 100%;
   display: flex;
-  justify-content: center;          /* true center */
-  
+  justify-content: center;
+  align-items: center;
   color: #473932;
   font-weight: bold;
-  margin-top: 20px;
-
-  font-size: clamp(40px, 6vw, 92px);
-  white-space: nowrap;
+  text-align: center;
+  line-height: 1.08;
+  margin: 20px 0 0;
+  padding: 0 24px;
+  font-size: clamp(2.5rem, 7vw, 6.25rem);
+  overflow-wrap: anywhere;
 } 
 
 .animated-banner,
@@ -49,7 +59,7 @@ h2 {
 
 .navbar-custom {
   width: 100%;
-  padding: 24px 0;
+  padding: 24px clamp(16px, 4vw, 48px);
   display: flex;
   justify-content: center;
 }
@@ -57,7 +67,7 @@ h2 {
 .navbar-menu {
   list-style: none;
   display: flex;
-  gap: 50px;
+  gap: clamp(20px, 5vw, 50px);
   padding: 0;
   margin: 0;
 }
@@ -82,13 +92,13 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px clamp(16px, 5vw, 64px) 64px;
 }
 
 .card {
   background-color: #d8cfc2;
   width: 100%;
-  max-width: 750px;
+  max-width: 900px;
   border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -102,8 +112,9 @@ h2 {
 .card-body {
   display: flex;
   align-items: center;
-  gap: 50px;
-  padding: 40px;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 64px);
+  padding: clamp(24px, 5vw, 56px);
 }
 
 .card h5 {
@@ -116,12 +127,41 @@ h2 {
 
 
 .my_image {
-  width: 240px;
+  width: min(32%, 280px);
+  min-width: 0;
   height: auto;
   border-radius: 16px;
   background-color: #cfc6b8;
   padding: 6px;
   transition: transform 0.5s ease;
+}
+
+.hero-copy {
+  min-width: 0;
+  margin: 0;
+}
+
+.hero-copy h5 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.hero-name {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
+}
+
+.hero-role {
+  color: #755e52;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .card:hover .my_image {
@@ -133,11 +173,13 @@ h2 {
   border: 1.5px solid #473932;
   background: transparent;
   color: #473932;
-  padding: 6px 18px;
+  padding: 9px 18px;
   font-size: 14px;
   border-radius: 20px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
   transition: all 0.3s ease;
-  margin-right: 10px;
 }
 
 .know-more-btn:hover {
@@ -148,10 +190,12 @@ h2 {
 .cv-btn {
   background: #473932;
   color: #faf7f0;
-  padding: 6px 18px;
+  padding: 9px 18px;
   font-size: 14px;
   border-radius: 20px;
   border: none;
+  text-decoration: none;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
@@ -181,16 +225,14 @@ h2 {
 ========================= */
 
 .about-section {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-
+  width: 100%;
   min-height: 100vh;
   background-color: #473932; /* caramel palette 553915 6a5d4a(was lil bit gud) 5a4d3b also gud*/
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 80px;
-  overflow: hidden;
+  padding: clamp(64px, 10vw, 120px) clamp(20px, 7vw, 80px);
+  overflow: clip;
 }
 
 
@@ -199,8 +241,8 @@ h2 {
   width: 100%;
   max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 100px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(40px, 8vw, 100px);
   align-items: center;
 
   opacity: 1 !important;
@@ -305,7 +347,7 @@ h2 {
 }
 
 .about-content p {
-  font-size: 18px;
+  font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.9;
   color: #e5e0db;
   margin-bottom: 22px;
@@ -377,6 +419,11 @@ h2 {
   animation-delay: 0.3s;
 }
 
+.about-wrapper.show p:nth-of-type(3) {
+  animation: textReveal 0.8s ease forwards;
+  animation-delay: 0.45s;
+}
+
 .about-wrapper.show .about-socials {
   animation: textReveal 0.8s ease forwards;
   animation-delay: 0.45s;
@@ -434,10 +481,8 @@ h2 {
 
 
 .projects-section {
-  width: 100vw;              /* force full viewport width for my projects */
-  margin-left: calc(-50vw + 50%);
-
-  padding: 120px 80px;
+  width: 100%;
+  padding: clamp(64px, 10vw, 120px) clamp(20px, 7vw, 80px);
   background-color: #3d312b; /* this was chocolate 452d21  */
 
   /* Chocolate bar grid effect 473932 */
@@ -458,8 +503,8 @@ h2 {
 
 .projects-title {
   color: #d8cfc2;
-  font-size: 48px;
-  margin-bottom: 80px;
+  font-size: clamp(36px, 5vw, 48px);
+  margin: 0 0 clamp(48px, 7vw, 80px);
   text-align: center;
   font-family: Georgia, serif;
 }
@@ -467,8 +512,8 @@ h2 {
 .project-row {
   display: flex;
   align-items: center;
-  gap: 60px;
-  margin-bottom: 120px;
+  gap: clamp(28px, 6vw, 60px);
+  margin-bottom: clamp(64px, 9vw, 120px);
   opacity: 0;
   transform: translateX(80px);
   transition: all 0.8s ease;
@@ -498,38 +543,72 @@ h2 {
 .projects-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 0;
 }
 
 
 .project-card {
   background: #d8cfc2;
-  width: 260px;
-  height: 160px;
+  flex: 0 1 260px;
+  min-width: 0;
+  min-height: 160px;
+  padding: 24px;
   border-radius: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover {
+.project-card-link {
+  cursor: pointer;
+}
+
+.project-card-link:hover {
   transform: scale(1.08);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .project-card h3 {
   color: #473932;
-  font-size: 20px;
+  font-size: clamp(18px, 2vw, 20px);
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .project-info {
+  flex: 1 1 420px;
+  min-width: 0;
   max-width: 420px;
   color: #f3eee6;
   font-size: 16px;
   line-height: 1.6;
+}
+
+.project-meta {
+  margin-bottom: 10px;
+  color: #d8cfc2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-technologies li {
+  padding: 4px 10px;
+  border: 1px solid rgba(216, 207, 194, 0.45);
+  border-radius: 999px;
+  color: #e5e0db;
+  font-size: 13px;
 }
 
 
@@ -542,11 +621,13 @@ h2 {
   background: #987f62;              /* caramel tone */
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 120px;
+  align-items: center;
+  padding: clamp(64px, 10vw, 120px) clamp(20px, 5vw, 64px);
 }
 
 .end-content {
+  width: 100%;
+  max-width: 760px;
   text-align: center;
   color: #473932;
 }
@@ -573,7 +654,7 @@ h2 {
 
 /* Subtitle */
 .end-subtitle {
-  font-size: 16px;
+  font-size: clamp(15px, 2vw, 16px);
   letter-spacing: 0.4px;
   color: #6b5a4c;
   margin-bottom: 40px;
@@ -615,61 +696,71 @@ h2 {
 
 /* Copyright */
 .copyright {
-  font-size: 14px;
+  font-size: clamp(12px, 1.8vw, 14px);
   color: #5a4a3a;
   letter-spacing: 0.3px;
 }
 
 
-/* =========================
-   MOBILE RESPONSIVENESS
-========================= */
-
-@media (max-width: 768px) {
-
-  /* ---------- GLOBAL ---------- */
-  body {
-    overflow-x: hidden;
+@media (max-width: 900px) {
+  .about-section {
+    min-height: auto;
   }
 
-  /* ---------- NAVBAR ---------- */
+  .about-wrapper {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 40px;
+  }
+
+  .about-image img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar-custom {
+    padding-block: 20px;
+  }
+
   .navbar-menu {
-    gap: 24px;
+    gap: clamp(16px, 6vw, 28px);
+  }
+
+  .navbar-menu li a {
     font-size: 14px;
   }
 
-  /* ---------- HERO ---------- */
-  .animated-banner {
-    font-size: 42px;
-    white-space: normal;
-    text-align: center;
-    padding: 0 12px;
-  }
-
-  .card {
-    max-width: 90%;
+  .image_container {
+    padding-top: 28px;
   }
 
   .card-body {
     flex-direction: column;
     gap: 24px;
-    padding: 24px;
+    padding: clamp(24px, 7vw, 40px);
     text-align: center;
   }
 
   .my_image {
-    width: 180px;
+    width: min(65%, 240px);
   }
 
-  /* ---------- ABOUT ---------- */
+  .hero-copy {
+    width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
   .about-wrapper {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
     text-align: center;
   }
 
   .about-image img {
-    max-width: 240px;
+    max-width: min(240px, 75%);
     margin: 0 auto;
   }
 
@@ -678,27 +769,104 @@ h2 {
     opacity: 1 !important;
   }
 
-  /* ---------- PROJECTS ---------- */
-  .project-row {
-    flex-direction: column;
-    gap: 28px;
-    text-align: center;
+  .about-content p {
+    margin-right: auto;
+    margin-left: auto;
   }
 
+  .about-socials {
+    justify-content: center;
+  }
+
+  .project-row,
   .project-row.reverse {
     flex-direction: column;
+    gap: 24px;
+    text-align: center;
+    transform: translateY(40px);
+  }
+
+  .project-row.show {
+    transform: translateY(0);
+  }
+
+  .project-card {
+    flex: 0 1 auto;
+    width: min(100%, 340px);
+    min-height: 140px;
   }
 
   .project-info {
-    max-width: 100%;
+    flex: 0 1 auto;
+    max-width: 600px;
   }
 
-  /* ---------- END SECTION ---------- */
-  .end-title {
+  .project-technologies {
+    justify-content: center;
+  }
+
+  .end-section {
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .animated-banner {
+    font-size: clamp(2.25rem, 11vw, 2.8rem);
+    padding-inline: 16px;
+  }
+
+  .navbar-menu {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .navbar-menu li a {
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions > * {
+    width: 100%;
+  }
+
+  .about-content h2 {
     font-size: 36px;
+  }
+
+  .about-socials {
+    gap: 16px;
+  }
+
+  .about-arrow {
+    margin-top: 32px;
+  }
+
+  .project-row {
+    margin-bottom: 64px;
+  }
+
+  .end-title {
+    font-size: clamp(32px, 10vw, 40px);
   }
 
   .end-socials {
     gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

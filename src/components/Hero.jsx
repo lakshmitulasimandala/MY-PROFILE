@@ -1,20 +1,10 @@
 function Hero() {
   return (
-    <div id="home">
-      {/* Name Banner */}
-      <div
-        className="animated-banner"
-        style={{
-          color: "#473932",
-          fontFamily: "age",
-          fontSize: "133px",
-          fontWeight: "bold",
-        }}
-      >
+    <section className="hero-section" id="home">
+      <h1 className="animated-banner">
         Lakshmi Tulasi Mandala
-      </div>
+      </h1>
 
-      {/* Card Section */}
       <div className="image_container d-flex justify-content-center">
         <div className="card">
           <div className="card-body d-flex justify-content-center">
@@ -24,21 +14,21 @@ function Hero() {
               className="my_image"
             />
 
-            <div className="d-flex flex-column justify-content-start m-5 p-5">
+            <div className="hero-copy">
               <h5>
                 Hello I'm <br />
-                <span style={{ fontWeight: "bold", fontSize: "30px" }}>
+                <span className="hero-name">
                   Lakshmi Tulasi
                 </span>
                 <br />
-                <span style={{ color: "#755e52" }}>
-                  A MERN Stack Developer.
+                <span className="hero-role">
+                  A Full Stack Developer.
                 </span>
               </h5>
 
-              <div className="d-flex justify-content-center mt-3">
+              <div className="hero-actions">
                 <button
-                  className="know-more-btn mr-4"
+                  className="know-more-btn"
                   onClick={() => {
                     document
                       .getElementById("about")
@@ -49,22 +39,19 @@ function Hero() {
                 </button>
 
                 <a
-                  href="/resume/MLT_Updated_Resume.pdf"
+                  href="/resume/MLT_FullStack_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cv-btn"
                 >
-                  <button className="cv-btn">
-                    View Resume
-                  </button>
+                  View Resume
                 </a>
-
-
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

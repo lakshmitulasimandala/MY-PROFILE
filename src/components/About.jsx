@@ -37,16 +37,23 @@ function About() {
           <h2>ABOUT</h2>
 
           <p>
-            I’m a frontend-focused MERN stack developer and a NxtWave student
-            who enjoys turning ideas into clean, functional, and visually calm
-            web experiences.
+            I’m a frontend-focused developer who enjoys turning ideas into
+            clean, functional, and thoughtful web experiences. I work with
+            React and Next.js to build user-focused applications.
           </p>
 
           <p>
-            I’m strongest in HTML, CSS, JavaScript, and React, Python, SQL's while steadily
-            expanding my backend knowledge. Alongside web development, I’m an
-            AI/ML enthusiast who loves exploring how intelligent systems can
-            enhance user-centric products.
+            From January to July 2026, I interned as a Frontend Developer at
+            Quanta People (formerly TMI Groups), where I built a product from
+            scratch with Next.js and React, using Server Actions, MongoDB, and
+            AWS Lightsail. I also fixed bugs, supported production releases,
+            and developed REST APIs for admin configuration.
+          </p>
+
+          <p>
+            I’m currently working full-time and open to opportunities where I
+            can keep learning, take on meaningful challenges, and grow my
+            skills.
           </p>
 
           <div className="about-socials">

@@ -2,6 +2,14 @@ import ProjectShowcase from "./ProjectShowcase";
 
 const projects = [
   {
+    title: "Full-Stack Product Development",
+    organization: "Quanta People (formerly TMI Groups)",
+    period: "Frontend Developer Intern · Jan 12 – Jul 13, 2026",
+    description:
+      "Built a complete product from scratch with Next.js and React, using Server Actions for backend functionality and MongoDB for data storage. Fixed bugs, delivered production releases, built REST APIs for admin configuration, and deployed the product to AWS Lightsail.",
+    technologies: ["Next.js", "React", "Server Actions", "MongoDB", "AWS Lightsail"],
+  },
+  {
     title: "JavaScript Projects For Practice",
     description:
       "A collection of small JavaScript projects to enhance coding skills.",
